@@ -4,29 +4,20 @@
 -- :help lspconfig-all will tell give you the list of LS available and info on how to install them. easy way to install is through your package manager but i am using mason.nvim.
 
 return {
+  -- LSP Configuration Library (Required for vim.lsp.enable to find configs)
   {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      {
-        "folke/lazydev.nvim",
-        ft = "lua", -- only loads on lua files
-        opts = {
-          library = {
-            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-          }
-        }
-      }
-    },
+    -- No config function needed if using vim.lsp.enable(), 
+    -- we just need the plugin in the runtime path.
+  },
 
-    config = function()
-      local lspconfig = require("lspconfig")
-      lspconfig.clangd.setup({})
-      lspconfig.lua_ls.setup({})
-      lspconfig.gopls.setup({})
-    end,
-    -- if you have multiple error/warning on one line then this will open all of those in a popup. you can press <space>d again to go inside the float window and copy the exact error/warning. getting out of float window is <space>qq for me
-    vim.keymap.set("n", "<space>d", vim.diagnostic.open_float),
-    -- Put this early in your init.lua (after Neovim v0.11+ loads)
-    vim.diagnostic.config({ virtual_text = true })
-  }
+  {
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {
+      library = {
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
+  },
 }

@@ -31,5 +31,7 @@ vim.opt.runtimepath:prepend(lazypath)
 require("lazy").setup({
   spec = {
     { import = "plugins" }
-  }
+  },
+  change_detection = { notify = false },
+  performance = { rtp = { reset = false } },
 })
