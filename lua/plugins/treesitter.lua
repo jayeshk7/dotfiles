@@ -8,16 +8,16 @@ return {
 				-- A list of parser names, or "all" (the listed parsers MUST always be installed)
 				ensure_installed = {
 					"c",
-					"go",
 					"cpp",
 					"lua",
 					"vim",
-					"vimdoc",
 					"python",
 					"html",
 					"css",
 					"javascript",
 					"markdown",
+          "java",
+          "javadoc",
 				},
 
 				-- Install parsers synchronously (only applied to `ensure_installed`)
@@ -25,12 +25,13 @@ return {
 
 				-- Automatically install missing parsers when entering buffer
 				-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-				auto_install = false,
+				auto_install = true,
+
 				highlight = {
 					enable = true,
 					-- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
 					disable = function(lang, buf)
-						local max_filesize = 1000 * 1024 -- 1000 KB
+						local max_filesize = 500 * 1024 -- 1000 KB
 						local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(buf))
 						if ok and stats and stats.size > max_filesize then
 							return true
@@ -43,6 +44,8 @@ return {
 					-- Instead of true it can also be a list of languages
 					additional_vim_regex_highlighting = false,
 				},
+        
+        indent = { enable = true },
 			})
 		end,
 	},
