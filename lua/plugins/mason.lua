@@ -10,6 +10,7 @@ return {
       "lua_ls",
       "pyright",
       "marksman",
+      "jdtls",
     }
   },
   dependencies = {
@@ -24,7 +25,14 @@ return {
     -- you don't have to set it up. really helpful. you can change the config according to your need as well if needed
     -- you can just do vim.enable.lsp("ls_name") and automatically the config will be attached to that lsp.
     "neovim/nvim-lspconfig"
+  },
+  config = function ()
+    require("mason-lspconfig").setup {
+    automatic_enable = {
+      exclude = {
+        "jdtls",
+      }
+    }
   }
+  end,
 }
-
-

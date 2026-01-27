@@ -32,6 +32,7 @@ vim.keymap.set("n", "k", "gk", { desc = "move properly in wrapped lines " })
 vim.keymap.set("n", "<space>ww", "<CMD>w<CR>", { desc = "saves file" })
 vim.keymap.set("n", "<space>qq", "<CMD>q<CR>", { desc = "quits without saving file" })
 vim.keymap.set("n", "<space>wq", "<CMD>wq<CR>", { desc = "quits without saving file" })
+vim.keymap.set('x', 'z/', '<C-\\><C-n>`</\\%V', { desc = 'Search forward within visual selection' })
 
 -- vim is basically a table. we are accessing the api field in the vim table, then we are going to access the nvim_create_autocmd field in api. if you did :lua =vim, you will see its a very big lua table. you can also do :lua =vim.api or vim.api.nvim_create_autocmd
 vim.api.nvim_create_autocmd("TextYankPost", {
