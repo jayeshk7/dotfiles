@@ -72,8 +72,7 @@ local config = {
       },
       project = {
         referencedLibraries = {
-          '/home/jayeshk/Desktop/java_learning/jol-cli-latest.jar',
-          '/home/jayeshk/Desktop/java_learning/soot-4.6.0-jar-with-dependencies.jar',
+          "/home/jayeshk/Desktop/IITB Coursework/Sem2/coool/soot-4.6.0-jar-with-dependencies.jar",
         }
       },
       configuration = {

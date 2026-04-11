@@ -1,4 +1,4 @@
-vim.opt.updatetime = 250
+vim.opt.updatetime = 200
 
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
@@ -58,6 +58,7 @@ vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left wind
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+
 
 -- require in lua is for importing files(modules). you might think you just have to create config.lazy but no, dot (.) means folder. you might think you have to create a config/lazy file but no. neovim only looks for lua files imported in require() inside of folders that have 'lua' as their toplevel folder. and these folders should be in the runtime path. :echo nvim_list_runtime_path() will show you the runtime paths. it's usually should have .config/nvim so you can just create alongside the init.lua file
 -- idc i dont understand exactly. i just followed the folder structure as told in lazy.folke.io

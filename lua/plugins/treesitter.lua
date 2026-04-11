@@ -17,6 +17,7 @@ return {
 					"css",
 					"javascript",
 					"markdown",
+					"markdown_inline",
           "java",
           "javadoc",
 				},

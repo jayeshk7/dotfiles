@@ -19,6 +19,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function (args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     if not client then return end
+    vim.notify('LSP Attached: ' .. client.name, vim.log.levels.INFO, { title = 'LSP' })
 
     -- many of these keymaps are just default LSP keymaps but i am writing them down so i remember them & can remap easily if needed
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Goto Definition'})

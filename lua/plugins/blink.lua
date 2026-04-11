@@ -8,7 +8,7 @@ return {
     ---@type blink.cmp.Config
 
     opts = {
-      keymap = { preset = 'default' }, -- Uses <Tab> to select, Enter to confirm
+      keymap = { preset = 'super-tab' }, -- Uses <Tab> to select, Enter to confirm
 
       appearance = {
         use_nvim_cmp_as_default = true,
