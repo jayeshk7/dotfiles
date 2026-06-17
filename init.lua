@@ -4,6 +4,7 @@ vim.opt.updatetime = 200
 -- loading lazy.nvim so that mappings are correct.
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.o.splitright = true
 
 local set = vim.opt
 
