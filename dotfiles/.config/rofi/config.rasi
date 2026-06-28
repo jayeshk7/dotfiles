@@ -1,0 +1,21 @@
+/* ============================================================
+   rofi config — Rose Pine (main)
+   ~/.config/rofi/config.rasi
+   ============================================================ */
+
+configuration {
+  modi:               "drun";
+  show-icons:         false;
+  display-drun:       " Apps";
+  drun-display-format: "{name}";
+  font:               "JetBrainsMono Nerd Font 12";
+  terminal:           "kitty";
+  ssh-client:         "ssh";
+  cycle:              true;
+  sidebar-mode:       false;
+  hover-select:       true;
+  me-select-entry:    "";
+  me-accept-entry:    "MousePrimary";
+}
+
+@theme "~/.config/rofi/themes/rose-pine.rasi"

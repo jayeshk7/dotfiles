@@ -3,6 +3,7 @@
 -- :help lspconfig-all will tell give you the list of LS available and info on how to install them. easy way to install is through your package manager but i am using mason.nvim.
 -- EDIT: moved nvim-lspconfig to mason.lua - it is added as dependency for mason-lspconfig. this file is just for lazydev
 
+-- this is only for lua lsp for nvim config development
 return {
   {
     "folke/lazydev.nvim",

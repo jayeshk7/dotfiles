@@ -1,0 +1,179 @@
+# ============================================================
+#  Mod = Alt
+# ============================================================
+
+set $mod Mod1
+
+# ── Rose Pine palette ───────────────────────────────────────
+set $base     #191724
+set $surface  #1f1d2e
+set $overlay  #26233a
+set $muted    #6e6a86
+set $subtle   #908caa
+set $text     #e0def4
+set $love     #eb6f92
+set $gold     #f6c177
+set $rose     #ebbcba
+set $pine     #31748f
+set $foam     #9ccfd8
+set $iris     #c4a7e7
+set $hl_low   #21202e
+set $hl_med   #403d52
+set $hl_high  #524f67
+
+# ── Font ────────────────────────────────────────────────────
+font pango:"JetBrainsMono Nerd Font" 11
+
+# ── Gaps ────────────────────────────────────────────────────
+gaps inner 7
+smart_gaps on
+smart_borders on
+
+# ── Window borders ──────────────────────────────────────────
+default_border pixel 2
+default_floating_border pixel 2
+hide_edge_borders smart
+
+# class                 border    bg        text    indicator  child_border
+client.focused          $pine     $surface  $text   $foam      $pine
+client.focused_inactive $overlay  $surface  $muted  $overlay   $overlay
+client.unfocused        $base     $base     $muted  $base      $base
+client.urgent           $love     $love     $base   $love      $love
+client.placeholder      $base     $base     $muted  $base      $base
+client.background       $base
+
+# ── Autostart ───────────────────────────────────────────────
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf -b
+exec --no-startup-id feh --bg-scale ~/Pictures/solarpunk_1080.jpg
+exec --no-startup-id nm-applet
+exec --no-startup-id dunst
+
+# ── Applications ────────────────────────────────────────────
+set $term kitty
+set $menu rofi -show drun -config ~/.config/rofi/config.rasi
+
+bindsym $mod+Return       exec $term
+bindsym $mod+d            exec $menu
+
+# ── Screenshot ──────────────────────────────────────────────
+bindsym Print             exec flameshot gui
+bindsym $mod+Print        exec flameshot screen -c
+
+# ── Media & Brightness ──────────────────────────────────────
+bindsym XF86AudioPlay     exec playerctl play-pause
+bindsym XF86AudioNext     exec playerctl next
+bindsym XF86AudioPrev     exec playerctl previous
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute        exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86MonBrightnessUp  exec brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+
+# ── Window management ───────────────────────────────────────
+bindsym $mod+q            kill
+bindsym $mod+f            fullscreen toggle
+bindsym $mod+shift+space  floating toggle
+bindsym $mod+space        focus mode_toggle
+bindsym $mod+a            focus parent
+
+# focus
+bindsym $mod+h            focus left
+bindsym $mod+j            focus down
+bindsym $mod+k            focus up
+bindsym $mod+l            focus right
+
+# move
+bindsym $mod+shift+h      move left
+bindsym $mod+shift+j      move down
+bindsym $mod+shift+k      move up
+bindsym $mod+shift+l      move right
+
+# split
+bindsym $mod+b            split h
+bindsym $mod+v            split v
+
+# layouts
+bindsym $mod+s            layout stacking
+bindsym $mod+w            layout tabbed
+bindsym $mod+e            layout toggle split
+
+# resize (quick)
+bindsym $mod+ctrl+h       resize shrink width  30 px or 5 ppt
+bindsym $mod+ctrl+l       resize grow   width  30 px or 5 ppt
+bindsym $mod+ctrl+j       resize grow   height 30 px or 5 ppt
+bindsym $mod+ctrl+k       resize shrink height 30 px or 5 ppt
+
+# open settings
+bindsym $mod+shift+s exec cinnamon-settings
+
+# ── Workspaces ──────────────────────────────────────────────
+set $ws1  "1"
+set $ws2  "2"
+set $ws3  "3"
+set $ws4  "4"
+set $ws5  "5"
+set $ws6  "6"
+set $ws7  "7"
+set $ws8  "8"
+set $ws9  "9"
+set $ws10 "10"
+
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+bindsym $mod+shift+1 move container to workspace number $ws1
+bindsym $mod+shift+2 move container to workspace number $ws2
+bindsym $mod+shift+3 move container to workspace number $ws3
+bindsym $mod+shift+4 move container to workspace number $ws4
+bindsym $mod+shift+5 move container to workspace number $ws5
+bindsym $mod+shift+6 move container to workspace number $ws6
+bindsym $mod+shift+7 move container to workspace number $ws7
+bindsym $mod+shift+8 move container to workspace number $ws8
+bindsym $mod+shift+9 move container to workspace number $ws9
+bindsym $mod+shift+0 move container to workspace number $ws10
+
+# cycle workspaces
+bindsym $mod+Tab        workspace next
+bindsym $mod+shift+Tab  workspace prev
+
+# ── Scratchpad ──────────────────────────────────────────────
+bindsym $mod+shift+minus move scratchpad
+bindsym $mod+minus       scratchpad show
+
+# ── System ──────────────────────────────────────────────────
+bindsym $mod+shift+c     reload
+bindsym $mod+shift+r     restart
+bindsym $mod+shift+q     exec "i3-nagbar -t warning \
+  -m 'Exit i3?' \
+  -B 'Yes, exit i3' 'i3-msg exit'"
+
+# ── Floating rules ──────────────────────────────────────────
+for_window [class="Nm-connection-editor"] floating enable
+for_window [title="^Floating$"]   floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="dialog"] floating enable
+
+# ── Resize mode (fallback) ──────────────────────────────────
+mode "resize" {
+  bindsym h resize shrink width  10 px or 5 ppt
+  bindsym l resize grow   width  10 px or 5 ppt
+  bindsym j resize grow   height 10 px or 5 ppt
+  bindsym k resize shrink height 10 px or 5 ppt
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# ── Bar (polybar handles it — i3bar disabled) ───────────────
+# bar { ... } intentionally omitted; polybar replaces it.

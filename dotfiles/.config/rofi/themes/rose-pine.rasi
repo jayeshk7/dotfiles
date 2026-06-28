@@ -1,0 +1,178 @@
+/* ============================================================
+   rose-pine.rasi — Rosé Pine main for Rofi
+   ~/.config/rofi/themes/rose-pine.rasi
+   ============================================================ */
+
+* {
+    /* ── Palette ─────────────────────────────────────────── */
+    base:        #191724;
+    surface:     #1f1d2e;
+    overlay:     #26233a;
+    muted:       #6e6a86;
+    subtle:      #908caa;
+    text:        #e0def4;
+    love:        #eb6f92;
+    gold:        #f6c177;
+    rose:        #ebbcba;
+    pine:        #31748f;
+    foam:        #9ccfd8;
+    iris:        #c4a7e7;
+    hl-low:      #21202e;
+    hl-med:      #403d52;
+    hl-high:     #524f67;
+
+    /* ── Rofi variable bindings ──────────────────────────── */
+    background-color:    transparent;
+    text-color:          @text;
+    border-color:        @pine;
+    separatorcolor:      @overlay;
+
+    /* Global geometry */
+    border:  0;
+    margin:  0;
+    padding: 0;
+    spacing: 0;
+}
+
+window {
+    background-color: @surface;
+    border:           2px;
+    border-color:     @pine;
+    border-radius:    12px;
+    width:            480px;
+    padding:          0;
+}
+
+mainbox {
+    background-color: transparent;
+    padding:          0;
+    children:         [ inputbar, message, mode-switcher, listview ];
+}
+
+/* ── Search bar ─────────────────────────────────────────── */
+inputbar {
+    background-color: @overlay;
+    border-radius:    10px 10px 0 0;
+    padding:          12px 16px;
+    spacing:          10px;
+    children:         [ prompt, textbox-prompt-colon, entry ];
+}
+
+prompt {
+    background-color: transparent;
+    text-color:       @pine;
+    font:             "JetBrainsMono Nerd Font Bold 12";
+}
+
+textbox-prompt-colon {
+    background-color: transparent;
+    text-color:       @muted;
+    str:              "›";
+}
+
+entry {
+    background-color: transparent;
+    text-color:       @text;
+    placeholder:      "Search...";
+    placeholder-color: @muted;
+    cursor:           @iris;
+}
+
+/* ── Results list ───────────────────────────────────────── */
+listview {
+    background-color: transparent;
+    padding:          8px 0;
+    lines:            9;
+    columns:          1;
+    spacing:          0;
+    scrollbar:        false;
+    border:           0;
+}
+
+element {
+    background-color: transparent;
+    padding:          8px 16px;
+    spacing:          10px;
+    border-radius:    0;
+    orientation:      horizontal;
+    children:         [ element-icon, element-text ];
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color: transparent;
+    text-color:       @text;
+}
+
+element normal.urgent,
+element alternate.urgent {
+    background-color: transparent;
+    text-color:       @love;
+}
+
+element normal.active,
+element alternate.active {
+    background-color: transparent;
+    text-color:       @foam;
+}
+
+element selected.normal {
+    background-color: @hl-med;
+    text-color:       @text;
+    border:           0px 0px 0px 2px;
+    border-color:     @pine;
+}
+
+element selected.urgent {
+    background-color: @hl-med;
+    text-color:       @love;
+}
+
+element selected.active {
+    background-color: @hl-med;
+    text-color:       @foam;
+}
+
+element-icon {
+    background-color: transparent;
+    size:             22px;
+    vertical-align:   0.5;
+}
+
+element-text {
+    background-color: transparent;
+    vertical-align:   0.5;
+    highlight:        bold #c4a7e7; /* Use the hex code directly to avoid the reference error */
+}
+
+/* ── Mode switcher ──────────────────────────────────────── */
+mode-switcher {
+    background-color: @base;
+    border-radius:    0 0 0 0;
+    padding:          6px;
+    spacing:          4px;
+}
+
+button {
+    background-color: transparent;
+    text-color:       @muted;
+    padding:          4px 12px;
+    border-radius:    6px;
+}
+
+button selected {
+    background-color: @overlay;
+    text-color:       @iris;
+}
+
+/* ── Message ────────────────────────────────────────────── */
+message {
+    background-color: @hl-low;
+    padding:          6px 12px;
+    border-radius:    0;
+}
+
+textbox {
+    background-color: transparent;
+    text-color:       @subtle;
+}

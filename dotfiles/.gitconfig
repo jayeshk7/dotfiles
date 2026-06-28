@@ -1,0 +1,14 @@
+[user]
+	name = jayeshk7
+	email = jayeshkandpal@gmail.com
+
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # use n and N to move between files
+    side-by-side = true # side-by-side diff view
+    line-numbers = true
