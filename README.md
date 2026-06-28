@@ -1,7 +1,9 @@
-minimalistic (not so much anymore) neovim, kitty and i3 setup config. 
+(kinda) minimalistic [neovim](https://github.com/jayeshk7/nvim/tree/main/.config/nvim), [kitty](https://github.com/jayeshk7/nvim/tree/main/.config/kitty) and [i3](https://github.com/jayeshk7/nvim/tree/main/.config/i3) setup config. 
 
-works for neovim v0.11+ 
-current nvim version v0.11.5
+current versions: 
+1. nvim     v0.11.5
+2. kitty    v0.47.4
+3. i3       v4.23
+4. polybar  v3.7.1
+5. dunst    v1.9.2
 
-if you let mason-lspconfig install treesitter-cli on its own you can get this error when you do :checkhealth nvim-treesitter (https://github.com/tree-sitter/tree-sitter/issues/4174)[https://github.com/tree-sitter/tree-sitter/issues/4174].
-just uninstall treesitter-cli from :Mason and install it separately like so `npm install -g tree-sitter-cli@0.25.10`. this should fix it.
