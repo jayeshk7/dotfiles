@@ -51,6 +51,14 @@ vim.keymap.set("n", "<space>st", function()
 	vim.cmd.wincmd("J")
 	vim.api.nvim_win_set_height(0, 16)
 end, { desc = "show terminal" })
+
+vim.keymap.set("n", "<space>vt", function()
+	vim.cmd.vnew()
+	vim.cmd.term()
+	-- vim.cmd.wincmd("")
+	-- vim.api.nvim_win_set_height(0, 16)
+end, { desc = "show terminal" })
+
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "exit terminal mode" })
 
 -- do :help wincmd to refer window/tab navigation

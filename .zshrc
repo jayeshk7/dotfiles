@@ -65,7 +65,7 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 alias q='exit'
 alias c='clear'
-alias vdot="cd ~/Desktop/IITB_coursework/dotfiles && nvim ."
+alias vdot="nvim ~/Desktop/dotfiles"
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
@@ -102,9 +102,16 @@ alias tree="eza --tree --icons=always"
 # 3. Bat (The Syntax-Highlighted 'cat' replacement)
 alias cat="batcat"
 
+# aliasing for opengl to use nvidia and not intel graphics
+alias nvrun="__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia"
+
 # 4. FZF Hardware Acceleration (Fuzzy Finder)
 # Forces fzf to use 'fd' and 'ripgrep' under the hood instead of the slow GNU 'find'.
 # This makes it ignore your .git and node_modules folders, searching millions of lines in milliseconds.
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
