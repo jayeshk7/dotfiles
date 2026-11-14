@@ -1,4 +1,4 @@
-(kinda) minimalistic [neovim](https://github.com/jayeshk7/nvim/tree/main/.config/nvim), [kitty](https://github.com/jayeshk7/nvim/tree/main/.config/kitty) and [i3](https://github.com/jayeshk7/nvim/tree/main/.config/i3) setup config. 
+[neovim](https://github.com/jayeshk7/nvim/tree/main/.config/nvim), [kitty](https://github.com/jayeshk7/nvim/tree/main/.config/kitty) and [i3](https://github.com/jayeshk7/nvim/tree/main/.config/i3) with polybar, rofi setup config. 
 
 current versions: 
 1. nvim     v0.11.5

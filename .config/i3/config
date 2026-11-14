@@ -26,7 +26,7 @@ font pango:"JetBrainsMono Nerd Font" 11
 
 # ── Gaps ────────────────────────────────────────────────────
 gaps inner 7
-smart_gaps on
+smart_gaps off
 smart_borders on
 
 # ── Window borders ──────────────────────────────────────────
@@ -45,7 +45,7 @@ client.background       $base
 # ── Autostart ───────────────────────────────────────────────
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf -b
-exec --no-startup-id feh --bg-scale ~/Pictures/solarpunk_1080.jpg
+exec --no-startup-id feh --bg-fill ~/Pictures/Maomao_HD.jpg
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 

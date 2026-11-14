@@ -8,7 +8,6 @@ return {
     ensure_installed = {
       "clangd",
       "lua_ls",
-      "pyright",
       "marksman",
       "jdtls",
     }
